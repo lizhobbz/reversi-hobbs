@@ -1,0 +1,27 @@
+{
+  "name": "reversi-hobbs",
+  "version": "1.0.0",
+  "description": "This is a web version of the game Reversi",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lizhobbz/reversi-hobbs.git"
+  },
+  "keywords": [
+    "reversi",
+    "hobbs"
+  ],
+  "author": "Liz Hobbs, HCID Masters Student",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/lizhobbz/reversi-hobbs/issues"
+  },
+  "homepage": "https://github.com/lizhobbz/reversi-hobbs#readme",
+  "dependencies": {
+    "node-static": "^0.7.11",
+    "socket.io": "^4.6.1"
+  }
+}
