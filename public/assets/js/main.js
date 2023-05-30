@@ -45,6 +45,19 @@ socket.on('join_room_response', (payload) =>{
 
 })
 
+socket.on('player_disconnected', (payload) =>{
+    if(( typeof payload == 'undefined') || (payload === null)){
+        console.log('Server did not send a payload');
+        return;
+    }
+    let newHTML = '<p class=\'left_room_response\'>'+payload.username+' left the '+payload.room+'. (There are '+payload.count+' users in this room)</p>';
+    let newNode = $(newHTML);
+    newNode.hide();
+    $('#messages').prepend(newNode);
+    newNode.show("fade",500);
+
+})
+
 function sendChatMessage(){
     let request = {};
     request.room = chatRoom;
