@@ -122,7 +122,7 @@ io.on('connection', (socket) => {
                     room: room
                 }
                 /* Announce to everyone that is in the room who else is in the room */
-                for (const member of sockets){
+                for (const member of sockets) {
                     response = {
                         result: 'success',
                         socket_id: member.id,
@@ -161,7 +161,7 @@ io.on('connection', (socket) => {
             serverLog('invite command failed', JSON.stringify(response));
             return;
         }
-        if ((typeof room == 'undefined') || (room === null) || (room === "") {
+        if ((typeof room == 'undefined') || (room === null) || (room === "")) {
             response = {
                 result: 'fail',
                 message: 'the user that was invited is not in a room'
@@ -211,7 +211,7 @@ io.on('connection', (socket) => {
 
     socket.on('disconnect', () => {
         serverLog('a page disconnected from the server: ' + socket.id);
-        if ((typeof players[socket.id] != 'undefined') && (players[socket.id] != null)){
+        if ((typeof players[socket.id] != 'undefined') && (players[socket.id] != null)) {
             let payload = {
                 username: players[socket.id].username,
                 room: players[socket.id].room,
@@ -221,8 +221,8 @@ io.on('connection', (socket) => {
             let room = players[socket.id].room;
             delete players[socket.id];
             /* Tell everyone who left the room */
-            io.of("/").to(room).emit('player_disconnected',payload)
-            serverLog('player disconnected succeeded ',JSON.stringify(payload));
+            io.of("/").to(room).emit('player_disconnected', payload)
+            serverLog('player disconnected succeeded ', JSON.stringify(payload));
         }
     });
 
