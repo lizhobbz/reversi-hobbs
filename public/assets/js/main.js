@@ -65,8 +65,7 @@ function makePlayButton(socket_id) {
         }
         console.log('**** Client log message, sending \'game_start\' command: ' + JSON.stringify(payload));
         socket.emit('game_start', payload);
-    }
-    );
+    });
     return newNode;
 }
 
@@ -87,7 +86,7 @@ socket.on('invite_response', (payload) => {
     }
     let newNode = makeInvitedButton(payload.socket_id);
     $('.socket_' + payload.socket_id + ' button').replaceWith(newNode);
-})
+});
 
 socket.on('invited', (payload) => {
     if ((typeof payload == 'undefined') || (payload === null)) {
@@ -100,7 +99,7 @@ socket.on('invited', (payload) => {
     }
     let newNode = makePlayButton(payload.socket_id);
     $('.socket_' + payload.socket_id + ' button').replaceWith(newNode);
-})
+});
 
 socket.on('uninvited', (payload) => {
     if ((typeof payload == 'undefined') || (payload === null)) {
@@ -128,7 +127,7 @@ socket.on('game_start_response', (payload) => {
     $('.socket_' + payload.socket_id + ' button').replaceWith(newNode);
     /* Jump to the game page */
     window.location.href = 'game.html?username=' + username + '&game_id=' + payload.game_id;
-})
+});
 
 socket.on('join_room_response', (payload) => {
     if ((typeof payload == 'undefined') || (payload === null)) {

@@ -324,6 +324,7 @@ io.on('connection', (socket) => {
 
         /* Make sure the player to engage is present */
         io.in(room).allSockets().then((sockets) => {
+            serverLog("There are " +sockets.length+ "clients in the room,"+room);
             /* Engaged player isn't in the room */
             if ((typeof sockets == 'undefined') || (sockets === null) || !sockets.has(requested_user)) {
                 response = {
@@ -340,7 +341,7 @@ io.on('connection', (socket) => {
                 response = {
                     result: 'success',
                     game_id: game_id,
-                    socket_id: requested_user
+                    socket_id: requested_user,
                 }
                 socket.emit("game_start_response", response);
                 socket.to(requested_user).emit("game_start_response", response);
