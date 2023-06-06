@@ -114,7 +114,7 @@ socket.on('uninvited', (payload) => {
     let newNode = makeInviteButton(payload.socket_id);
     $('.socket_' + payload.socket_id + ' button').replaceWith(newNode);
     /* Jump to the game page */
-    window.location.href = 'game.html?username='+username+'&game_id='+payload.game_id;
+    window.location.href = 'game.html?username=' + username + '&game_id=' + payload.game_id;
 });
 
 socket.on('game_start_response', (payload) => {
