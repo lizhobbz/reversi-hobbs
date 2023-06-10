@@ -5,11 +5,11 @@ body {
     background-color: #DECCE1;
 }
 #messagePane {
-    background-color: #fff;
+    background-color: #DECCE1;
 }
 .join_room_response,
 .left_room_response{
-    background-color: #DECCE1;
+    background-color: #a977b33c;
 }
 .chat_message {
     color: rgb(0, 0, 0);
@@ -24,6 +24,7 @@ table#game_board {
 }
 
 table#game_board td {
+    background-color:#A977B3;
     border: 1px solid black;
     margin: 0px;
     padding: 0px;
